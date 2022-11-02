@@ -1,0 +1,18 @@
+.track-info {
+  text-align: left;
+}
+
+.track-info__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+}
+
+.track-info__artist {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 120%;
+  text-transform: capitalize;
+}

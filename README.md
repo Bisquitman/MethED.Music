@@ -1,4 +1,4 @@
-# Интенсив - Музыкальный плеер METHED.MUSIC (01.11 — 04.11)
+# Интенсив — Музыкальный плеер METHED.MUSIC (01.11—04.11)
 
 #### Записаться на интенсивы можно через [Telegram-бота](https://t.me/methed_bot)
 
@@ -8,6 +8,7 @@
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Favicon Generator](https://realfavicongenerator.net/)
 - [Шрифты](https://fs02.getcourse.ru/fileservice/file/download/a/251231/sc/290/h/e4d9425d5ff0a9651e1dbd1c0e9bb169.zip)
+- [Сервис для сжатия изображений](https://squoosh.app/)
 
 
 ***
