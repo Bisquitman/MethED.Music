@@ -6,6 +6,8 @@
 .header__container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 17px 25px;
   max-width: 1240px;
 }
 
@@ -20,10 +22,14 @@
 
 .header__favourite-btn {
   color: #fff;
-  transition: color 0.2s ease-in-out;
+  transition: filter 0.2s ease-in-out;
   line-height: 0;
 }
 
 .header__favourite-btn:hover {
-  color: tomato;
+  filter: drop-shadow(0 0 2px #000);
+}
+
+.header__favourite-btn_active {
+  color: #000;
 }

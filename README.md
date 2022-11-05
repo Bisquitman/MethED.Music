@@ -9,6 +9,11 @@
 - [Favicon Generator](https://realfavicongenerator.net/)
 - [Шрифты](https://fs02.getcourse.ru/fileservice/file/download/a/251231/sc/290/h/e4d9425d5ff0a9651e1dbd1c0e9bb169.zip)
 - [Сервис для сжатия изображений](https://squoosh.app/)
+- [скачать audio](https://fs02.getcourse.ru/fileservice/file/download/a/251231/sc/403/h/57fcdfe07c34d86ffe6702efbd48af08.zip)
+- [Массив с треками](https://codepen.io/Quper/pen/OJEMdBR)
+- [node.js](https://nodejs.org/en/)
+- [API music (259.32 МБ)](https://fs02.getcourse.ru/fileservice/file/download/a/251231/sc/243/h/d7f444b8425abef05d38fde5842c2a07.zip)
+- [API music light (45.42 МБ)](https://fs09.getcourse.ru/fileservice/file/download/a/251231/sc/122/h/461ac10ed8650890058a1b4a3caf2b42.zip)
 
 
 ***

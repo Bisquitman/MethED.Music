@@ -1,0 +1,178 @@
+@media (max-width: 1024px) {
+  /* Header */
+  .header__container {
+    padding: 0 22px;
+  }
+
+  .header__search {
+    margin-right: 90px;
+  }
+
+  /* Catalog */
+  .catalog__container {
+    padding: 0 14px;
+  }
+
+  /* Player */
+  .player__container {
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Player */
+  .player {
+    right: 34px;
+    left: 34px;
+    padding: 22px 60px;
+    border-radius: 30px;
+  }
+
+  .player_active {
+    padding-bottom: 24px;
+  }
+
+  .player__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .player__progress-wrapper {
+    order: 1;
+    grid-column: 1 / -1;
+    padding-right: 0;
+  }
+
+  .player__progress {
+    max-width: none;
+  }
+
+  .player__controller {
+    justify-self: center;
+  }
+
+  .player__volume-wrapper {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Default */
+  body {
+    padding-bottom: 217px;
+  }
+
+  /* Header */
+  .header__container {
+    padding: 0 15px;
+    max-width: 610px;
+  }
+
+  .header__logo {
+    margin-right: 12px;
+  }
+
+  .header__search {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 740px) {
+  /* Default */
+  body {
+    padding-bottom: 187px;
+  }
+
+  /* Player */
+  .player {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .player_active {
+    bottom: 0;
+  }
+
+  .player__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .player__volume-wrapper {
+    display: none;
+  }
+
+  .player__controller {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 560px) {
+  /* Header */
+  .header {
+    padding-top: 20px;
+  }
+
+  .header__container {
+    flex-wrap: wrap;
+  }
+
+  .header__search {
+    flex-basis: 100%;
+    order: 1;
+  }
+
+  /* Catalog */
+  .catalog__container {
+    padding: 0 10px;
+    grid-template-columns: repeat(auto-fill, 148px);
+    gap: 2px;
+  }
+
+  .catalog__btn-add {
+    gap: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 14px;
+  }
+
+  /* Track */
+  .track {
+    padding: 3px;
+    border-width: 1px;
+    border-radius: 14px;
+  }
+
+  .track-info {
+    padding: 8px;
+  }
+
+  .track-info_mobile-center {
+    text-align: center;
+  }
+
+  .track-info__title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .track-info__artist {
+    font-size: 12px;
+  }
+
+  /* Player */
+  .player {
+    left: 0;
+    right: 0;
+    padding: 16px 15px;
+  }
+
+  .player__container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .player__controller,
+  .player__volume-wrapper,
+  .player__track-info {
+    justify-self: center;
+  }
+}

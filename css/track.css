@@ -70,11 +70,12 @@
   opacity: 1;
 }
 
-.track_active:hover .track__img-wrapper::after {
-  background-color: #fff;
+.track_pause .track__img-wrapper::after {
+  background-image: url("../img/play.svg");
 }
 
-.track__poster {
+.track_active:hover .track__img-wrapper::after {
+  background-color: #fff;
 }
 
 .track__info {

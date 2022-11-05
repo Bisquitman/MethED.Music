@@ -8,10 +8,13 @@
 
 .catalog__btn-add {
   color: #fff;
-  grid-column: 1 / -1;
+  grid-column: -2 / -1;
   margin-left: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
   display: flex;
   align-items: center;
+  gap: 8px;
   font-weight: 600;
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -22,4 +25,24 @@
 
 .catalog__btn-add:hover {
   color: #e6a93f;
+}
+
+.favourite__title {
+  grid-column: 1 / -1;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.favourite__text {
+  grid-column: 1 / -1;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  padding: 12px 0;
 }

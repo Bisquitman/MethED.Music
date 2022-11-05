@@ -7,5 +7,4 @@
 @import "track.css";
 @import "track-info.css";
 @import "player.css";
-
-/*:hover::-moz-range-track, :hover::-moz-range-thumb*/
+@import "adaptive.css";
