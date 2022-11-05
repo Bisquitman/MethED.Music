@@ -160,13 +160,6 @@
 
   const renderCatalog = (dataList) => {
     playlist = [...dataList];
-    if (!playlist.length) {
-      catalogContainer.innerHTML = `
-      <h2 class="favourite__title">Избранное</h2>
-      <h3 class="favourite__text">0 результатов</h3>
-    `;
-      return;
-    }
 
     catalogContainer.textContent = '';
 
@@ -182,9 +175,12 @@
     if (catalogContainer.clientHeight && catalogContainer.clientHeight + 20 > trackCards[0].clientHeight * 3) {
       trackCards[trackCards.length - i].style.display = 'none';
       return checkCount(catalogBtnShowAll, i + 1);
-    }
-
-    if (i !== 1) {
+    } else if (!catalogContainer.clientHeight) {
+      catalogContainer.innerHTML = `
+        <h2 class="favourite__title">Избранное</h2>
+        <h3 class="favourite__text">0 результатов</h3>
+      `;
+    } else if (i !== 1) {
       catalogContainer.append(catalogBtnShowAll);
     }
 
@@ -315,15 +311,15 @@
     });
   };
 
-  const init = () => {
+  const init = async () => {
     audio.volume = +localStorage.getItem('volume') || 0.8;
     playerVolumeInput.value = audio.volume * 100;
 
-    fetch(`${API_URL}/api/music`)
-      .then((data) => data.json())
-      .then(renderCatalog)
-      .finally(eventListeners);
+    dataMusic = await fetch(`${API_URL}/api/music`)
+      .then((data) => data.json());
+      renderCatalog(dataMusic);
+      eventListeners();
   };
 
-  init();
+  init().then();
 })();
