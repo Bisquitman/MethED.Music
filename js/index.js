@@ -177,8 +177,7 @@
       return checkCount(catalogBtnShowAll, i + 1);
     } else if (!catalogContainer.clientHeight) {
       catalogContainer.innerHTML = `
-        <h2 class="favourite__title">Избранное</h2>
-        <h3 class="favourite__text">0 результатов</h3>
+        <h2 class="favourite__text">0 результатов</h2>
       `;
     } else if (i !== 1) {
       catalogContainer.append(catalogBtnShowAll);
@@ -224,7 +223,7 @@
     return catalogBtnShowAll;
   };
 
-  const eventListeners = () => {
+  const eventListeners = async () => {
     prevBtn.addEventListener('click', playMusic);
     nextBtn.addEventListener('click', playMusic);
 
@@ -240,7 +239,7 @@
       audio.currentTime = (progress / playerProgressInput.max) * audio.duration;
     });
 
-    favouriteBtn.addEventListener('click', (catalogBtnShowAll) => {
+    favouriteBtn.addEventListener('click', () => {
       if (favouriteBtn.classList.contains('header__favourite-btn_active')) {
         favouriteBtn.classList.remove('header__favourite-btn_active');
         renderCatalog(dataMusic);
@@ -248,9 +247,17 @@
         favouriteBtn.classList.add('header__favourite-btn_active');
         const data = dataMusic.filter((item) => favouriteList.includes(item.id));
         renderCatalog(data);
+        catalogContainer.insertAdjacentHTML(
+          'afterbegin',
+          `<h2 class='favourite__title'>Избранное</h2>`,
+        );
+        if (!data.length) {
+          catalogContainer.innerHTML = `
+            <h2 class='favourite__title'>Избранное</h2>
+            <h3 class='favourite__text'>0 Результатов</h3>
+          `;
+        }        
       }
-
-      // TODO Заголовок Избранное при рендере списка избранных.
     });
 
     headerLogo.addEventListener('click', (catalogBtnShowAll) => {
@@ -304,10 +311,10 @@
     searchForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      fetch(`${API_URL}/api/music?search=${searchForm.search.value}`)
-        .then((data) => data.json())
-        .then(renderCatalog)
-        .finally(searchForm.reset());
+      playlist = await fetch(`${API_URL}/api/music?search=${searchForm.search.value}`)
+        .then((data) => data.json());
+        renderCatalog(playlist);
+        searchForm.reset();
     });
   };
 
