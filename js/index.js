@@ -1,5 +1,34 @@
 const API_URL = 'http://localhost:3024';
 
+// Функция throttle будет принимать 2 аргумента:
+// - callee, функция, которую надо вызывать;
+// - timeout, интервал в мс, с которым следует пропускать вызовы.
+function throttle(callee, timeout) {
+  // Таймер будет определять,
+  // надо ли нам пропускать текущий вызов.
+  let timer = null
+
+  // Как результат возвращаем другую функцию.
+  // Это нужно, чтобы мы могли не менять другие части кода,
+  // чуть позже мы увидим, как это помогает.
+  return function perform(...args) {
+    // Если таймер есть, то функция уже была вызвана,
+    // и значит новый вызов следует пропустить.
+    if (timer) return
+
+    // Если таймера нет, значит мы можем вызвать функцию:
+    timer = setTimeout(() => {
+      // Аргументы передаём неизменными в функцию-аргумент:
+      callee(...args)
+
+      // По окончании очищаем таймер:
+      clearTimeout(timer)
+      timer = null
+    }, timeout)
+  }
+}
+
+
 // const dataMusic = [
 //   {
 //     id: '1',
@@ -92,6 +121,7 @@ let playlist = [];
 const favouriteList = localStorage.getItem('favourite') ? JSON.parse(localStorage.getItem('favourite')) : [];
 
 const audio = new Audio();
+const headerLogo = document.querySelector('.header__logo');
 const favouriteBtn = document.querySelector('.header__favourite-btn');
 const trackCards = document.getElementsByClassName('track');
 const player = document.querySelector('.player');
@@ -102,6 +132,7 @@ const prevBtn = document.querySelector('.player__controller-prev');
 const nextBtn = document.querySelector('.player__controller-next');
 const likeBtn = document.querySelector('.player__controller-like');
 const playerProgressInput = document.querySelector('.player__progress-input');
+
 const muteBtn = document.querySelector('.player__controller-mute');
 const playerVolumeInput = document.querySelector('.player__volume-input');
 
@@ -290,7 +321,9 @@ const init = async () => {
     nextBtn.dispatchEvent(new Event('click', {bubbles: true}))
   });
 
-  audio.addEventListener('timeupdate', updateTime);
+  const updateTimeThrottle = throttle(updateTime, 500);
+
+  audio.addEventListener('timeupdate', updateTimeThrottle);
 
   playerProgressInput.addEventListener('change', () => {
     const progress = playerProgressInput.value;
@@ -307,6 +340,14 @@ const init = async () => {
       const data = dataMusic.filter((item) => favouriteList.includes(item.id));
       renderCatalog(data);
       checkCount();
+    }
+  });
+
+  headerLogo.addEventListener('click', () => {
+    renderCatalog(dataMusic);
+    checkCount();
+    if (favouriteBtn.classList.contains('header__favourite-btn_active')) {
+      favouriteBtn.classList.remove('header__favourite-btn_active');
     }
   });
 

@@ -13,6 +13,7 @@
 
 .header__logo {
   margin-right: 94px;
+  cursor: pointer;
 }
 
 .header__search {
