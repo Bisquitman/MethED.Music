@@ -8,7 +8,7 @@
 
 .catalog__btn-add {
   color: #fff;
-  grid-column: -2 / -1;
+  grid-column: 1 / -1;
   margin-left: auto;
   padding-top: 16px;
   padding-bottom: 16px;

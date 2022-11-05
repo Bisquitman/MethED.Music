@@ -1,4 +1,10 @@
-node_modules
-.idea
+/**/node_modules/
+/.git/
 .vscode
-package-lock.json
+/.vscode/
+.idea
+/.idea/
+/**/Thumbs.db
+/**/*.DS_Store
+/**/package-lock.json
+/**/debug.log
